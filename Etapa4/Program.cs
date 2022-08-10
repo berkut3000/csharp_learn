@@ -3,7 +3,7 @@ using CoreEscuela.Entidades;
 using System.Collections.Generic;
 using static System.Console;
 
-namespace Etapa1
+namespace CoreEscuela
 {
     class Program
     {
