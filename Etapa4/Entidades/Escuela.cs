@@ -3,6 +3,8 @@ namespace CoreEscuela.Entidades
 {
     public class Escuela
     {
+        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
+
         string nombre;
         public string Nombre
         {
