@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 namespace CoreEscuela.Entidades
 {
-    public class Escuela: ObjetoEscuelaBase
+    //Al estar sellada, nadie puede heredar
+    public sealed class Escuela: ObjetoEscuelaBase
     {        
         public int añoCreacion{ get; set;}
 
