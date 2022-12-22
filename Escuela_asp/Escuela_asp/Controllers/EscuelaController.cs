@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Escuela_asp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Escuela_asp.Controllers
 {
@@ -6,7 +7,12 @@ namespace Escuela_asp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var escuela = new Escuela();
+            escuela.AñoFundación = 1971;
+            escuela.EscuelaId = Guid.NewGuid().ToString();
+            escuela.Nombre = "ESTI No. 3";
+
+            return View(escuela);
         }
 
     }
