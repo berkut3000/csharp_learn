@@ -11,6 +11,10 @@ namespace Escuela_asp.Controllers
             escuela.AñoDeCreación = 1971;
             escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "ESTI No. 3";
+            escuela.Ciudad = "Xalapa";
+            escuela.Pais = "México";
+            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            escuela.Dirección = "Avila Camacho 502";
 
             ViewBag.CosaDinamica = "La Monja";
 
