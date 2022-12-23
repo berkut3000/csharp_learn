@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Escuela
+@*/* En razor el modelo es debilmente tipado, no hay nada que
+## valide que Escuela tenga o no tenga miembros. */*@
+@{
     ViewData["Title"] = "Informacion Escuela";
 }
 
@@ -10,3 +13,4 @@
 <h1>Escuela: </h1>
 <h2>Nombre:@Model.Nombre</h2>
 <p><strong>Año Fundación: @Model.AñoFundación</strong></p>
+
