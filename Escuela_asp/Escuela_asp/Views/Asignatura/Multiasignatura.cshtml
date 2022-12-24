@@ -1,8 +1,8 @@
-﻿@model Asignatura
+﻿@model List<Asignatura>
 @*/* En razor el modelo es debilmente tipado, no hay nada que
 ## valide que Asignatura tenga o no tenga miembros. */*@
 @{
-    ViewData["Title"] = "Informacion Asignatura";
+    ViewData["Title"] = "Informacion Multi Asignatura";
     //Layout = "Simple";
     @*Cambiamos la plantilla por defecto*@
 }
@@ -14,16 +14,12 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<strong>Desde la vista normal</strong>
-<p>
-    Nombre:@Model.Nombre</br>
-    Id: @Model.UniqueId
-</p>
-
 <strong>Desde la vista parcial</strong>
-<partial name = "AsignaturaSimple"/>
 
-
+@foreach (var asignatura in Model)
+{
+    <partial name = "AsignaturaSimple" model = "asignatura"/>
+}
 
 @*<p><i>@ViewBag.CosaDinamica</i></p>*@
 <p><i>@ViewData["CosaDinamica"]</i></p>
