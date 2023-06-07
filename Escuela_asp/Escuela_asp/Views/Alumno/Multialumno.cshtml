@@ -1,4 +1,7 @@
-﻿@model List<Alumno>
+﻿@*
+    Cambiar de LIst a IEnumerable para evitar errores de Compatiblidad en la pagina Web
+*@
+@model IEnumerable<Alumno>
 @*/* En razor el modelo es debilmente tipado, no hay nada que
 ## valide que Alumno tenga o no tenga miembros. */*@
 @{

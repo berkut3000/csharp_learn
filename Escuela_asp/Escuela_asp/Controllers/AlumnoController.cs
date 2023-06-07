@@ -8,37 +8,17 @@ namespace Escuela_asp.Controllers
     {
         public IActionResult Index()
         {
-            var alumno = new Alumno
-            {
-                Nombre = "Pepe Perez",
-                Id = Guid.NewGuid().ToString()
-            };
-
-            return View(alumno);
+            return View(_context.Alumnos.FirstOrDefault());
         }
         public IActionResult Multialumno()
         {
-            var listaAlumnos = GenerarAlumnosAlAzar();
-
-
-            ViewBag.CosaDinamica = "La Monja";
-            ViewBag.Fecha = DateTime.UtcNow;
-
-            return View("Multialumno",listaAlumnos);
+            return View("Multialumno", _context.Alumnos);
         }
 
-        private List<Alumno> GenerarAlumnosAlAzar()
+        private EscuelaContext _context;
+        public AlumnoController(EscuelaContext context)
         {
-            string[] nombre1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolás" };
-            string[] apellido1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
-            string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
-
-            var listaAlumnos = from n1 in nombre1
-                               from n2 in nombre2
-                               from a1 in apellido1
-                               select new Alumno { Nombre = $"{n1} {n2} {a1}", Id = Guid.NewGuid().ToString() };
-
-            return listaAlumnos.OrderBy((al) => al.Id).ToList();
+            _context = context;
         }
 
     }

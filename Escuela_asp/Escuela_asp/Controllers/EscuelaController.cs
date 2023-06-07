@@ -6,7 +6,6 @@ namespace Escuela_asp.Controllers
 {
     public class EscuelaController : Controller
     {
-        private EscuelaContext _context;
         public IActionResult Index()
         {
            
@@ -16,6 +15,7 @@ namespace Escuela_asp.Controllers
             return View(escuela);
         }
 
+        private EscuelaContext _context;
         public EscuelaController(EscuelaContext context)
         {
             _context = context;
