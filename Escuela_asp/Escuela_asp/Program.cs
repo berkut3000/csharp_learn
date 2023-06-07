@@ -1,5 +1,7 @@
 using Escuela_asp.Models;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Escuela_asp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,23 @@ builder.Services.AddControllersWithViews();
 // Configurar servicio de Database, adicionar configuracion de tipo Escuelaserver
 builder.Services.AddDbContext<EscuelaContext>(options => options.UseInMemoryDatabase("testDB"));
 
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var serv = scope.ServiceProvider;
+    try
+    {
+        var contex = serv.GetRequiredService<EscuelaContext>();
+        contex.Database.EnsureCreated();
+    }
+    catch (System.Exception)
+    {
+        throw;
+    }
+
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
