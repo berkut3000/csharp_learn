@@ -1,10 +1,11 @@
 ﻿using Escuela_asp.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Linq;
 namespace Escuela_asp.Controllers
 {
     public class EscuelaController : Controller
     {
+        private EscuelaContext _context;
         public IActionResult Index()
         {
             var escuela = new Escuela();
@@ -17,8 +18,13 @@ namespace Escuela_asp.Controllers
             escuela.Dirección = "Avila Camacho 502";
 
             ViewBag.CosaDinamica = "La Monja";
-
+            var escuela = _context.Escuelas.FirstOrDefault;
             return View(escuela);
+        }
+
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
         }
 
     }
