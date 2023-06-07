@@ -12,6 +12,8 @@ namespace Escuela_asp.Controllers
                 Nombre = "Programacion",
                 UniqueId = Guid.NewGuid().ToString()
             };
+            ViewBag.CosaDinamica = "La Monja";
+            ViewBag.Fecha = DateTime.UtcNow;
 
             return View(asignatura);
         }

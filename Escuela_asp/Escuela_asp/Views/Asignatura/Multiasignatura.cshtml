@@ -3,7 +3,7 @@
 ## valide que Asignatura tenga o no tenga miembros. */*@
 @{
     ViewData["Title"] = "Informacion Multi Asignatura";
-    //Layout = "Simple";
+    Layout = "Simple";
     @*Cambiamos la plantilla por defecto*@
 }
 
@@ -15,11 +15,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <strong>Desde la vista parcial</strong>
-
-@foreach (var asignatura in Model)
-{
-    <partial name = "ObjetoEscuelaSimple" model = "asignatura"/>
-}
+<partial name = "ListaObjetoEscuela" />
 
 @*<p><i>@ViewBag.CosaDinamica</i></p>*@
 <p><i>@ViewData["CosaDinamica"]</i></p>
